@@ -1,26 +1,18 @@
 function convertAntiPode(lat, long) {
 	// antiPodeLat: lat * opposite
 	// antiPodeLong: (180 - abs(long)) * opposite
-	
+
 	let antiPodeLat = (lat * -1);
 	let antiPodeLong = (180 - Math.abs(long));
 
-	document.getElementById('currentLat').innerHTML = 'Current Lat: ' + lat;
-	document.getElementById('currentLong').innerHTML = 'Current Long: ' + long;
-	document.getElementById('antiPodeLat').innerHTML = 'AntiPodal Lat: ' + antiPodeLat;
-	document.getElementById('antiPodeLong').innerHTML = 'antiPode Long: ' + antiPodeLong;
-
-	window.open('https://www.google.com/maps/@'+antiPodeLat+','+antiPodeLong+',4z', '_blank');
-
-	//let newLink = document.createElement("a");
-	//let newContent = document.createTextNode("follow link"); 
-	//newLink.appendChild(newContent); 
-
-	//let currentEl = document.getElementById("antiPodeLong");
-	//document.body.insertBefore(newLink, currentEl.nextSibling);
-	//newLink.href = 'https://www.google.com/maps/@'+antiPodeLat+','+antiPodeLong+',6z';
-	//newLink.target = "_blank"
-	//document.getElementById('map_link').href = 'https://www.google.com/maps/@'+antiPodeLat+','+antiPodeLong+',4z';
+	mapboxgl.accessToken = 'pk.eyJ1IjoiYmFzc2VoZXMiLCJhIjoiY2pwaHA0eDE4MHl2ZTN3bXBpeXJwb3lnZyJ9.VVk0qC0658u4H0W2ZzScbw';
+	
+	let map = new mapboxgl.Map({
+	container: 'map',
+	style: 'mapbox://styles/mapbox/streets-v10',
+	center: [antiPodeLong, antiPodeLat],
+	zoom: 3
+	});
 }
 
 function findGPS() {
