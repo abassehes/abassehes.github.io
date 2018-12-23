@@ -28,3 +28,20 @@ body {
   margin: auto;
   padding: 10px;
 }
+
+p {
+  margin: auto;
+  text-align: center;
+  width: 50%;
+  color: white;
+}
+
+#box {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+  width: 30%;
+  justify-content: center;
+
+}
